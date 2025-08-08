@@ -127,18 +127,6 @@ class CollectionView extends StatelessWidget {
                     icon: Stack(
                       children: [
                         const Icon(Icons.notifications_outlined, color: Colors.white, size: 28),
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          child: Container(
-                            width: 8,
-                            height: 8,
-                            decoration: const BoxDecoration(
-                              color: Colors.red,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                     onPressed: () {},

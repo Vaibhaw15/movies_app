@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Login Successful!')),
             );
-            Navigator.push(context,
+            Navigator.pushReplacement(context,
                 MaterialPageRoute(
                     builder: (context) => MainScreen(),
                     ),
@@ -149,22 +149,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => MultiBlocProvider(
-                              //           providers: [
-                              //             BlocProvider<RegistrationCubit>(
-                              //               create: (BuildContext context) => RegistrationCubit(),
-                              //             ),
-                              //           ],
-                              //           child: RegistrationScreen(),
-                              //         )));
-                              Navigator.push(context,
+                              Navigator.pushReplacement(
+                                  context,
                                   MaterialPageRoute(
-                                      builder: (context) => MainScreen(),
-                                      ),
-                              );
+                                      builder: (context) => MultiBlocProvider(
+                                        providers: [
+                                          BlocProvider<RegistrationCubit>(
+                                            create: (BuildContext context) => RegistrationCubit(),
+                                          ),
+                                        ],
+                                        child: RegistrationScreen(),
+                                      )));
                             },
                             child: Text(
                               'Register',

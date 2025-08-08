@@ -37,9 +37,10 @@ class _HomePageState extends State<HomePage> {
         actions: const [
           Icon(Icons.notifications_outlined, size: 28, color: Colors.white),
           SizedBox(width: 16),
-          CircleAvatar(
+          const CircleAvatar(
             backgroundColor: Colors.grey,
             radius: 18,
+            child: Icon(Icons.person, color: Colors.white, size: 20),
           ),
           SizedBox(width: 16),
         ],
