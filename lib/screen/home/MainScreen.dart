@@ -35,9 +35,18 @@ class _MainScreenState extends State<MainScreen> {
       child: HomePage(),
     ),
     CollectionPage(),
-    HomePage(),
-    CollectionPage()
+    emptyScreen(),
+    emptyScreen(),
   ];
+
+  static Widget emptyScreen() {
+    return Container(
+      color: Colors.black,
+      child: Center(
+        child: Text("No content available",style: TextStyle(color: Colors.white),),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
