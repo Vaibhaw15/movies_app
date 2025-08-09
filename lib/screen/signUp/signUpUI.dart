@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/signUp/signUpCubit.dart';
-import 'package:movies_app/signUp/signUpState.dart';
-
+import 'package:movies_app/screen/signUp/signUpCubit.dart';
+import 'package:movies_app/screen/signUp/signUpState.dart';
+import '../../util/customeTextField.dart';
+import '../../util/logo.dart';
 import '../logIn/logInUI.dart';
 import '../logIn/loginCubit.dart';
-import '../util/customeTextField.dart';
-import '../util/logo.dart';
+
 
 class RegistrationScreen extends StatelessWidget {
   @override
@@ -33,7 +33,11 @@ class RegistrationScreen extends StatelessWidget {
                 ),
               ),
             );
-          } else if (state is RegistrationError) {
+          } else if (state is RegistrationOtpSent) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('OTP sent Successfully to your Email ID.Please Verify the otp.')),
+            );
+          }else if (state is RegistrationError) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),
             );

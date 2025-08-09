@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/signUp/signUpState.dart';
+import 'package:movies_app/screen/signUp/signUpState.dart';
 
-import '../network/signUpAPI.dart';
-import '../network/verifyOtp.dart';
+import '../../networking/signUpAPI.dart';
+import '../../networking/verifyOtp.dart';
 
 class RegistrationCubit extends Cubit<RegistrationState> {
   RegistrationCubit() : super(RegistrationInitial());

@@ -2,9 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-
-import '../Models/collectionsModels.dart';
-import '../network/collectionAPI.dart';
+import '../../networking/collectionAPI.dart';
 import 'homeState.dart';
 
 class HomeCubit extends Cubit<HomeState> {

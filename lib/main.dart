@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/screen/logIn/logInUI.dart';
+import 'package:movies_app/screen/logIn/loginCubit.dart';
 import 'package:movies_app/util/splashScreen.dart';
-
-import 'logIn/logInUI.dart';
-import 'logIn/loginCubit.dart';
 
 
 void main() {

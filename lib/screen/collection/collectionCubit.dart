@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../Models/collectionsModels.dart';
-import '../network/collectionAPI.dart';
+import '../../Models/collectionsModels.dart';
+import '../../networking/collectionAPI.dart';
 import 'collectionState.dart';
 
 class CollectionsCubit extends Cubit<CollectionsState> {
@@ -72,10 +71,24 @@ class CollectionsCubit extends Cubit<CollectionsState> {
     return languages;
   }
 
-  void changeLanguage(String language) {
+  Future<void> changeLanguage(String language) async {
     if (state is CollectionsLoaded) {
       final currentState = state as CollectionsLoaded;
-      emit(currentState.copyWith(selectedLanguage: language));
+
+      // Show loading immediately
+      emit(currentState.copyWith(
+        selectedLanguage: language,
+        isLoadingLanguage: true,
+      ));
+
+      // Add a small delay to show the loading indicator
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      // Hide loading and update with filtered results
+      emit(currentState.copyWith(
+        selectedLanguage: language,
+        isLoadingLanguage: false,
+      ));
     }
   }
 

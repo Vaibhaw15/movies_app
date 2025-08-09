@@ -5,7 +5,7 @@ class RegistrationInitial extends RegistrationState {}
 
 class RegistrationLoading extends RegistrationState {}
 
-class RegistrationOtpSent extends RegistrationState {} // <-- Add this
+class RegistrationOtpSent extends RegistrationState {}
 
 class RegistrationVerified extends RegistrationState {}
 

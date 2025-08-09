@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../Models/collectionsModels.dart';
+import '../../Models/collectionsModels.dart';
 import 'collectionCubit.dart';
 import 'collectionState.dart';
 
@@ -147,6 +147,14 @@ class CollectionView extends StatelessWidget {
                     builder: (context, state) {
                       if (state is CollectionsLoaded) {
 
+                        if (state.isLoadingLanguage) {
+                          return const Center(
+                            child: CircularProgressIndicator(
+                              color: Color(0xFF9575CD),
+                            ),
+                          );
+                        }
+
                         if (state.selectedLanguage != tab) {
                           WidgetsBinding.instance.addPostFrameCallback((_) {
                             context.read<CollectionsCubit>().changeLanguage(tab);
@@ -174,6 +182,13 @@ class CollectionView extends StatelessWidget {
                   : BlocBuilder<CollectionsCubit, CollectionsState>(
                 builder: (context, state) {
                   if (state is CollectionsLoaded) {
+                    if (state.isLoadingLanguage) {
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          color: Color(0xFF9575CD),
+                        ),
+                      );
+                    }
                     final movies = context.read<CollectionsCubit>().getFilteredMovies(state);
 
                     if (movies.isEmpty) {
