@@ -20,7 +20,7 @@ class RegistrationScreen extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Registration successful!.Please log in to continue!')),
             );
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => MultiBlocProvider(
