@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ImboxoLogo extends StatelessWidget {
+  final double width;
+  final double height;
+  final bool small;
+  ImboxoLogo({this.width = 28, this.height = 44, this.small = false});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,17 +14,17 @@ class ImboxoLogo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          _BorderedLetter('I'),
+          _BorderedLetter('I', height, width,small),
           SizedBox(width: 4),
-          _BorderedLetter('M'),
+          _BorderedLetter('M', height, width,small),
           SizedBox(width: 4),
-          _BorderedLetter('B'),
+          _BorderedLetter('B', height, width,small),
           SizedBox(width: 4),
-          _BorderedLetter('O'),
+          _BorderedLetter('O', height, width,small),
           SizedBox(width: 4),
-          _BorderedLetter('X'),
+          _BorderedLetter('X', height, width,small),
           SizedBox(width: 4),
-          _BorderedLetter('O'),
+          _BorderedLetter('O', height, width,small),
         ],
       ),
     );
@@ -30,14 +34,17 @@ class ImboxoLogo extends StatelessWidget {
 // Individual bordered letter widget
 class _BorderedLetter extends StatelessWidget {
   final String letter;
+  final double height;
+  final double width;
+  final bool small;
 
-  const _BorderedLetter(this.letter);
+  const _BorderedLetter(this.letter,this.height, this.width,this.small);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 28,
-      height: 44,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.white,
@@ -50,7 +57,7 @@ class _BorderedLetter extends StatelessWidget {
           letter,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 28,
+            fontSize: small ?14:28,
             fontWeight: FontWeight.bold,
           ),
         ),

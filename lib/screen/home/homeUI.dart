@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../Models/collectionsModels.dart';
+import '../../util/logo.dart';
 import 'homeCubit.dart';
 import 'homeState.dart';
 
@@ -29,10 +30,11 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         leadingWidth: 0,
         leading: const SizedBox(),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: Image.asset('assets/images/logo.png', scale: 20),
-        ),
+        // title: Padding(
+        //   padding: const EdgeInsets.only(left: 16),
+        //   child: Image.asset('assets/images/logo.png', scale: 20),
+        // ),
+        title: ImboxoLogo(width: 14,height: 22,small: true,),
         actions: const [
           Icon(Icons.notifications_outlined, size: 28, color: Colors.white),
           SizedBox(width: 16),
